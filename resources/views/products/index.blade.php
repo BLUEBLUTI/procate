@@ -23,7 +23,7 @@
                         <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                     </td>
                     <td>{{ $product->category->name ?? '-' }}</td>
-                    <td>{{ $product->stock }}</td>
+                    <td>{{ $product->stock->name ?? '-' }}</td>
                     <td>{{ number_format($product->price, 0, ',', '.') }}</td>
                     <td>
                         <a href="{{ route('products.edit', $product) }}">Edit</a>

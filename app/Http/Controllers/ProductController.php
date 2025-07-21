@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
@@ -18,7 +19,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('products.create', compact('categories'));
+        $stocks = Stock::all();
+        return view('products.create', compact('categories', 'stocks'));
     }
 
     public function store(Request $request)
@@ -26,7 +28,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'stock' => 'required|integer',
+            'stock_id' => 'required|exists:stocks,id',
             'price' => 'required|numeric',
         ]);
 
@@ -47,6 +49,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         return view('products.edit', compact('product', 'categories'));
+        $stocks = Stock::all();
+        return view('products.edit', compact('product','stocks'));
     }
 
     public function update(Request $request, Product $product)
@@ -54,7 +58,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'stock' => 'required|integer',
+            'stock_id' => 'required|exists:stocks,id',
             'price' => 'required|numeric',
         ]);
 

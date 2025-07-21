@@ -13,7 +13,12 @@
             @endforeach
         </select>
         <label>Stok:</label>
-        <input type="number" name="stock" required>
+        <select name="stock_id" required>
+            <option value="">-- Pilih Satuan --</option>
+            @foreach($stocks as $stock)
+                <option value="{{ $stock->id }}">{{ $stock->name }}</option>
+            @endforeach
+        </select>
         <label>Harga:</label>
         <input type="number" name="price" required>
         <button type="submit">Simpan</button>
