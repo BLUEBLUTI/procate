@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Product Category App</title>
@@ -18,4 +18,4 @@
         @yield('content')
     </div>
 </body>
-</html>
+</html> --}}

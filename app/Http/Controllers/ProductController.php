@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Stock;
+use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->get();
+        $products = Product::with(['category', 'shop', 'stock'])->get();
         return view('products.index', compact('products'));
     }
 
@@ -20,7 +21,8 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $stocks = Stock::all();
-        return view('products.create', compact('categories', 'stocks'));
+        $shops = Shop::all();
+        return view('products.create', compact('categories', 'stocks', 'shops'));
     }
 
     public function store(Request $request)
@@ -29,6 +31,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category_id' => 'required|exists:categories,id',
             'stock_id' => 'required|exists:stocks,id',
+            'shop_id' => 'required|exists:shops,id',
             'price' => 'required|numeric',
         ]);
 
@@ -50,7 +53,9 @@ class ProductController extends Controller
         $categories = Category::all();
         return view('products.edit', compact('product', 'categories'));
         $stocks = Stock::all();
-        return view('products.edit', compact('product','stocks'));
+        return view('products.edit', compact('product', 'stocks'));
+        $shops = Shop::all();
+        return view('products.edit', compact('product', 'shops'));
     }
 
     public function update(Request $request, Product $product)
@@ -59,6 +64,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category_id' => 'required|exists:categories,id',
             'stock_id' => 'required|exists:stocks,id',
+            'shop_id' => 'required|exists:shops,id',
             'price' => 'required|numeric',
         ]);
 

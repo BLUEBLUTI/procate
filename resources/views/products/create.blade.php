@@ -19,6 +19,13 @@
                 <option value="{{ $stock->id }}">{{ $stock->name }}</option>
             @endforeach
         </select>
+        <label>Toko:</label>
+        <select name="shop_id" required>
+            <option value="">-- Pilih Toko --</option>
+            @foreach($shops as $shop)
+                <option value="{{ $shop->id }}">{{ $shop->name }}</option>
+            @endforeach
+        </select>
         <label>Harga:</label>
         <input type="number" name="price" required>
         <button type="submit">Simpan</button>

@@ -32,7 +32,7 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required|exists:users,id',
+            'user_id' => 'required|exists:users,id',  
             'purchase_date' => 'required|date',
             'total_amount' => 'required|numeric',
         ]);
