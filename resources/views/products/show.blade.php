@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 @section('content')
     <h2>Detail Produk</h2>
     <p><strong>Nama:</strong> {{ $product->name }}</p>

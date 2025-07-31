@@ -16,6 +16,9 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categories</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('purchases.index') }}">Purchases</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('stocks.index') }}">Stocks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('shops.index') }}">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('purchase-items.index') }}">Purchase Items</a></li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     @auth

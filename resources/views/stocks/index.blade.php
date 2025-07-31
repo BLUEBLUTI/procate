@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 @section('content')
     <h2>Daftar Stok</h2>
     <a href="{{ route('stocks.create') }}">Tambah Stok</a>

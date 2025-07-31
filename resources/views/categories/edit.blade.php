@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 @section('content')
     <h2>Edit Kategori</h2>
     <form action="{{ route('categories.update', $category) }}" method="POST">

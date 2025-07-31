@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 @section('content')
     <h2>Daftar Toko</h2>
     <a href="{{ route('shops.create') }}">Tambah Lokasi</a>

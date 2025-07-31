@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 @section('content')
     <h2>Stok Barang</h2>
     <form action="{{ route('stocks.store') }}" method="POST">

@@ -14,6 +14,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('auth.dashboard');
+})->middleware(['auth'])->name('dashboard');
 Route::resource('users', UserController::class);
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
@@ -22,3 +25,6 @@ Route::resource('shops', ShopController::class);
 Route::resource('purchases', PurchaseController::class);
 Route::resource('purchase-items', PurchaseItemController::class);
 Route::resource('stocks', StockController::class);
+Route::get('/login', [AuthenticationController::class, 'login'])->name('login');
+Route::post('/login', [AuthenticationController::class, 'authenticate']);
+Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout');

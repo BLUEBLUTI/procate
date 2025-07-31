@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.layout')
 
 @section('content')
     <h2>Tambah Transaksi Pembelian</h2>
